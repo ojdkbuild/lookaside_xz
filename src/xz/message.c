@@ -1110,7 +1110,8 @@ message_help(bool long_help)
 
 	puts(_(
 "  -z, --compress      force compression\n"
-"  -d, --decompress    force decompression\n"
+"  -d, --decompress, --uncompress\n"
+"                      force decompression\n"
 "  -t, --test          test compressed file integrity\n"
 "  -l, --list          list information about .xz files"));
 
@@ -1120,7 +1121,8 @@ message_help(bool long_help)
 	puts(_(
 "  -k, --keep          keep (don't delete) input files\n"
 "  -f, --force         force overwrite of output file and (de)compress links\n"
-"  -c, --stdout        write to standard output and don't delete input files"));
+"  -c, --stdout, --to-stdout\n"
+"                      write to standard output and don't delete input files"));
 
 	if (long_help) {
 		puts(_(
@@ -1152,6 +1154,10 @@ message_help(bool long_help)
 "  -e, --extreme       try to improve compression ratio by using more CPU time;\n"
 "                      does not affect decompressor memory requirements"));
 
+	puts(_(
+"  -T, --threads=NUM   use at most NUM threads; the default is 1; set to 0\n"
+"                      to use the number of processor cores"));
+
 	if (long_help) {
 		// FIXME? Mention something about threading?
 		puts(_(
@@ -1166,7 +1172,7 @@ message_help(bool long_help)
 		puts(_( // xgettext:no-c-format
 "      --memlimit-compress=LIMIT\n"
 "      --memlimit-decompress=LIMIT\n"
-"  -M, --memlimit=LIMIT\n"
+"  -M, --memlimit=LIMIT, (old alias --memory=LIMIT)\n"
 "                      set memory usage limit for compression, decompression,\n"
 "                      or both; LIMIT is in bytes, % of RAM, or 0 for defaults"));
 
